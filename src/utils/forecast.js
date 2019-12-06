@@ -28,7 +28,7 @@ const forcast=(latitude,longitude,callback)=>
             const data=response.body
             callback(undefined,{
                 
-                forecastdata:data.daily.data[0].summary+' '+'it is '+data.currently.temperature+' outside'+' there are '+data.currently.precipProbability +' chances of rain'
+                forecastdata:data.daily.data[0].summary+' '+'it is '+data.currently.temperature+' outside'+' there are '+data.currently.precipProbability +' chances of rain.The wind speed is '+data.currently.windspeed+'. The visibility is  '+data.currently.visibility+'.\nThe highest temperature is '+data.daily[0].temperatureHigh+'.\nThe lowest temperature recorded is'+data.daily[0].temperatureLow+'.'
 
             })
         }
