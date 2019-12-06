@@ -10,3 +10,4 @@ we tell the heroku to start the app by locating the app.js file
 we can do npm run start this will start our app .this similar command is used by heroku to start our file
 second step is to change the port number from 3000(local) to the port provided by heroku in the environment variable
 const port=process.env.port
+git push heroku master -to deply at heroku
