@@ -1,0 +1,12 @@
+after installing heroku and heroku cli and setting up ssh
+heroku keys:add - to add ssh keys to heroku
+heroku create satwik-weather-application -to  create the heroku production
+the link that comes in blue is the link to the app and the link in green is the link to the project in heroku
+go to package.json and inside script ,modigy the key value pair 
+script:{
+    start:node src/app.js,
+}
+we tell the heroku to start the app by locating the app.js file 
+we can do npm run start this will start our app .this similar command is used by heroku to start our file
+second step is to change the port number from 3000(local) to the port provided by heroku in the environment variable
+const port=process.env.port

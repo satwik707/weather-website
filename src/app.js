@@ -29,14 +29,23 @@ app.set('view engine','hbs')
 //git add is used to add all the untracked files to unstaged files(ready to be commited) git add . is used to add all the untracked files im one go.
 // git commit -m "messsage about our version of commit"
 
-
-
-
+//ssh to securely send our code of local machine to the github and heroku
+// ls -a -l ~/.ssh - ls means list out ,-a is for hidden files , -l is for top to bottom structure ,then we need to specify the path ~ is for root then ~/.ssh means inside root directory all .ssh files
+// to create ssh folder -> ssh-keygen -t rsa -b 4096 -C"satwik.srivastava707@gmail.com"
+//-b stands for no. of bits and -C means to comment  , -t stands for type
+// to start ssh agent use eval $(ssh-agent -s)
+// next step is to register the file in ssh
+//ssh-add ~/.ssh/id_rsa
+//cat ~/.ssh/id_rsa.pub --to see the ssh key
+//ssh -T git@github.com --to check the ssh connection with github
 
  const request = require('process')
  const geocode=require('./utils/geocode')
  const forecast=require('./utils/forecast')
 
+ const port=process.env.PORT || 3000
+ //heroku provides its own port number that it puts in the environment variable 
+ //if using locally we can use 3000 as the port.
 
 
 
@@ -128,7 +137,7 @@ app.get('*',(req,res)=>{               //* is a wildcard character that matches 
 })
 
 
-app.listen(3000,()=>
+app.listen(port,()=>
 {
-    console.log(chalk.inverse.green('server is up running on port 3000'))
+    console.log(chalk.inverse.green('server is up running on port '+port))
 })

@@ -23,7 +23,7 @@ weatherform.addEventListener('submit',(event)=>
     event.preventDefault();  //the default behavior is to refresh the page every time the event is fired .in order to prevent this behavior we use prevent default
     messageOne.textContent='Loading your weather ';
     messageTwo.textContent='';      
-    fetch('http://localhost:3000/weather?address='+location1.value).then((response)=>{
+    fetch('/weather?address='+location1.value).then((response)=>{
       
       
            response.json().then((data)=>
